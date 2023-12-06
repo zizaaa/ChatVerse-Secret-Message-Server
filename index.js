@@ -15,10 +15,7 @@ app.use(cors())
 app.use(secretMessageRoute)
 
 const PORT = process.env.PORT || 3000;
-mongoose.connect(process.env.MONGODB_CONNECT_URI,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGODB_CONNECT_URI)
 .then(()=>{
     app.listen(PORT,()=>{
         console.log(`Node API App is running on port ${PORT}`);
