@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.put('/api/deleteMessage',authenticateToken, deleteMessage);
 
-router.put('/api/postSecretMessage', postSecretMessage);
+router.put('/api/postSecretMessage/:id', postSecretMessage);
 
 router.post('/api/createSecretMessage', createSecretMessage);
 

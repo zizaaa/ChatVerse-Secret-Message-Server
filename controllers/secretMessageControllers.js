@@ -2,7 +2,6 @@ const SecretMessage = require('../models/secretMessageModel');
 const jwt = require('jsonwebtoken');
 
 const deleteMessage = async(req,res)=>{
-    console.log(req.body)
     try {
         const secretMessage = await SecretMessage.findById({_id:req.body.id})
 
@@ -22,7 +21,9 @@ const deleteMessage = async(req,res)=>{
 
 const postSecretMessage = async(req,res)=>{
     try {
-        const secretMessage = await SecretMessage.findById({_id:req.body.id})
+        const { id } = req.params;
+
+        const secretMessage = await SecretMessage.findById({_id:id})
 
             if(!secretMessage){
                 return res.status(404).json('Secret Message not found!')
